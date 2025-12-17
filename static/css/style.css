@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FAF9F6; /* Background colour */
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #8B4513; /* Primary colour */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    color: white;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #F5DEB3; /* Secondary colour */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #F5DEB3; /* Secondary colour */
+}
+
+.hero h1 {
+    color: #8B4513; /* Primary colour */
+}
+
+.btn-primary {
+    background-color: #FFD700; /* Accent colour */
+    padding: 12px 25px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Features */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #8B4513; /* Primary colour */
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
