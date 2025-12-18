@@ -1,0 +1,90 @@
+{% extends "auth_service/base.html" %}
+{% block content %}
+
+<style>
+  body {
+      background-color: #FAF9F6; /* Neutral soft */
+      font-family: 'Arial', sans-serif;
+  }
+
+  /* Center form vertically & horizontally */
+  .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+  }
+
+  /* Login card */
+  .login-box {
+      background: #F5DEB3; /* Soft warm background */
+      border: 2px solid #8B4513; /* Primary brand color */
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 380px;
+      padding: 40px 30px;
+      transition: transform 0.3s ease;
+  }
+
+  .login-box:hover {
+      transform: translateY(-5px);
+  }
+
+  /* Heading */
+  .login-box h3 {
+      text-align: center;
+      color: #8B4513; /* Brand color */
+      font-weight: 700;
+      margin-bottom: 25px;
+      font-size: 22px;
+  }
+
+  /* Input fields */
+  .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #8B4513;
+      font-size: 15px;
+  }
+
+  .login-box input:focus {
+      border-color: #FFD700; /* Accent color */
+      outline: none;
+      box-shadow: 0 0 5px #FFD700;
+  }
+
+  /* Button */
+  .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #FFD700; /* Accent */
+      color: #4a2c00;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  .login-box button:hover {
+      background-color: #e6c200;
+      transform: translateY(-2px);
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-box">
+    <h3>Login to चित्रकला बजार</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send OTP</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
