@@ -1,0 +1,152 @@
+{% extends "auth_service/base.html" %}
+{% block content %}
+
+<style>
+  body {
+      background-color: #FAF9F6; /* Neutral soft */
+      font-family: 'Arial', sans-serif;
+  }
+
+  .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+  }
+
+  .login-box {
+      background: #F5DEB3; /* Soft warm background */
+      border: 2px solid #8B4513; /* Brand color */
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 380px;
+      padding: 40px 30px;
+      transition: transform 0.3s ease;
+  }
+
+  .login-box:hover { transform: translateY(-5px); }
+
+  .login-box h3 {
+      text-align: center;
+      color: #8B4513;
+      font-weight: 700;
+      margin-bottom: 25px;
+      font-size: 22px;
+  }
+
+  .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      border: 1px solid #8B4513;
+      font-size: 15px;
+  }
+
+  .login-box input:focus {
+      border-color: #FFD700; /* Accent color */
+      outline: none;
+      box-shadow: 0 0 5px #FFD700;
+  }
+
+  .error-msg {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 15px;
+  }
+
+  .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #FFD700; /* Accent */
+      color: #4a2c00;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+  }
+
+  .login-box button:hover {
+      background-color: #e6c200;
+      transform: translateY(-2px);
+  }
+
+  .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+  }
+
+  .login-link a {
+      color: #8B4513;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  .login-link a:hover {
+      color: #4a2c00;
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-box">
+    <h3>Register for चित्रकला बजार</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Full Name -->
+        <label for="id_full_name">Full Name</label>
+        {{ form.full_name }}
+        {% if form.full_name.errors %}
+            <div class="error-msg">{{ form.full_name.errors.0 }}</div>
+        {% endif %}
+
+        <!-- Email -->
+        <label for="id_email">Email</label>
+        {{ form.email }}
+        {% if form.email.errors %}
+            <div class="error-msg">{{ form.email.errors.0 }}</div>
+        {% endif %}
+
+        <!-- Username -->
+        <label for="id_username">Username</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="error-msg">{{ form.username.errors.0 }}</div>
+        {% endif %}
+
+        <!-- Phone -->
+        <label for="id_phone">Phone</label>
+        {{ form.phone }}
+        {% if form.phone.errors %}
+            <div class="error-msg">{{ form.phone.errors.0 }}</div>
+        {% endif %}
+
+        <!-- Password -->
+        <label for="id_password1">Password</label>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="error-msg">{{ form.password1.errors.0 }}</div>
+        {% endif %}
+
+        <!-- Confirm Password -->
+        <label for="id_password2">Confirm Password</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="error-msg">{{ form.password2.errors.0 }}</div>
+        {% endif %}
+
+        <button type="submit">Register & Send OTP</button>
+    </form>
+
+    <div class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
